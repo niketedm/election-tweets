@@ -1,0 +1,30 @@
+html {
+    cursor: default;
+}
+
+a {
+    text-decoration: none!important;
+}
+
+#embeded-tweets {
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    -webkit-column-fill: inherit;
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -moz-column-fill: inherit;
+    column-count: 2;
+    column-gap: 20px;
+    column-fill: inherit;
+    width: 1000px;
+    margin: 50px auto;
+}
+
+#embeded-tweets li {
+    display: inline-block;
+    width: 500px;
+}
+
+.love {
+    color: #f00;
+}

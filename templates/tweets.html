@@ -1,0 +1,11 @@
+{% for tweet in tweets %}
+<li>{{tweet.html|safe}}</li>
+{%endfor%}
+
+<script type="text/javascript">
+{% if has_next %}
+    $('input#page').val('{{ next }}')
+{% else %}
+    $('#more-tweets').hide()
+{% endif %}
+</script>
