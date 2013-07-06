@@ -132,7 +132,7 @@ LOGGING = {
 # Uncomment and change any of following keys
 SUIT_CONFIG = {
     # header
-    'ADMIN_NAME': 'Chango',
+    'ADMIN_NAME': '@tweetczm',
     # 'HEADER_DATE_FORMAT': 'l, j. F Y',
     # 'HEADER_TIME_FORMAT': 'H:i',
 
@@ -156,6 +156,10 @@ SUIT_CONFIG = {
     # misc
     'LIST_PER_PAGE': 15
 }
+
+LOGIN_URL = '/signin'
+LOGOUT_URL = '/signout'
+LOGIN_REDIRECT_URL = '/new'
 
 try:
     from local_settings import *

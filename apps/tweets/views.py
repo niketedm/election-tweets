@@ -1,11 +1,12 @@
 from __future__ import unicode_literals
-from django.shortcuts import render_to_response, get_object_or_404
-from django.db import IntegrityError, connection
-from django.core.paginator import Paginator
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import User
 from django.core.context_processors import csrf
+from django.core.paginator import Paginator
+from django.shortcuts import render_to_response, get_object_or_404
+from django.template import RequestContext
+
 
 
 import requests
@@ -36,8 +37,8 @@ def get_new(request):
 
         oauth = get_oauth()
 
-        r = requests.get(url=settings.APIURL + tweet[
-                         0] + settings.PARAMS, auth=oauth).content
+        r = requests.get(url=settings.APIURL + tweet[0] + settings.PARAMS,
+                         auth=oauth).content
 
         r = json.loads(r)
 
@@ -50,7 +51,7 @@ def get_new(request):
 
         tweet.save()
 
-    return render_to_response('new.html', c)
+    return render_to_response('new.html', c, RequestContext(request))
 
 
 def get_tweets(request):
@@ -73,4 +74,4 @@ def get_tweets(request):
 
 
 def get_template(request):
-    return render_to_response('hello.html')
+    return render_to_response('hello.html', RequestContext(request))

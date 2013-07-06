@@ -17,6 +17,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'signin/$', 'django.contrib.auth.views.login', name = 'login'),
+    url(r'signout/$', 'django.contrib.auth.views.logout_then_login'),
     url(r'^', include('apps.tweets.urls')),
 )
 
