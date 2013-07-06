@@ -2,6 +2,10 @@ html {
     cursor: default;
 }
 
+body {
+    margin-top: 100px;
+}
+
 a {
     text-decoration: none!important;
 }
@@ -17,7 +21,7 @@ a {
     column-gap: 20px;
     column-fill: inherit;
     width: 1000px;
-    margin: 50px auto;
+    margin: 0 auto;
 }
 
 #embeded-tweets li {
@@ -27,4 +31,13 @@ a {
 
 .love {
     color: #f00;
+}
+
+.new-tweet {
+    width: 90%;
+}
+
+footer {
+    text-align: center;
+    font-size: 90%;
 }

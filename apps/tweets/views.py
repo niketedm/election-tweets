@@ -3,13 +3,18 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.db import IntegrityError, connection
 from django.core.paginator import Paginator
 from django.conf import settings
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core.context_processors import csrf
+
+
 import requests
 from requests_oauthlib import OAuth1
 from urlparse import parse_qs
 import json
 
 from apps.tweets.models import Tweet
+
 
 def get_oauth():
     oauth = OAuth1(settings.CONSUMER_KEY,
@@ -19,27 +24,33 @@ def get_oauth():
     return oauth
 
 
-def save_tweet(request):
+@login_required
+def get_new(request):
 
-    tweet = request.GET['url']
-    tweet = tweet.split('/')[-1:]
+    c = {}
+    c.update(csrf(request))
 
-    oauth = get_oauth()
+    if request.method == 'POST':
+        tweet = request.POST['url']
+        tweet = tweet.split('/')[-1:]
 
-    r = requests.get(url=settings.APIURL + tweet[0] + settings.PARAMS, auth=oauth).content
+        oauth = get_oauth()
 
-    r = json.loads(r)
+        r = requests.get(url=settings.APIURL + tweet[
+                         0] + settings.PARAMS, auth=oauth).content
 
-    tweet = Tweet(
-        tid=tweet[0],
-        html=r['html'],
-        url=r['url'],
-        author=r['author_name']
-    )
+        r = json.loads(r)
 
-    tweet.save()
+        tweet = Tweet(
+            tid=tweet[0],
+            html=r['html'],
+            url=r['url'],
+            author=r['author_name']
+        )
 
-    return HttpResponse('Oki :D')
+        tweet.save()
+
+    return render_to_response('new.html', c)
 
 
 def get_tweets(request):
