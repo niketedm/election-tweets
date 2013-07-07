@@ -20,18 +20,19 @@ a {
     column-count: 2;
     column-gap: 20px;
     column-fill: inherit;
-    width: 1040px;
     margin: 0 auto;
+    width: 1040px;
 }
 
 #embeded-tweets li {
     display: inline-block;
-    width: 500px;
     opacity: 0;
+    width: 500px;
 }
 
-.love {
+.disclaimer {
     color: #f00;
+    font-weight: bold;
 }
 
 .new-tweet {
@@ -39,6 +40,11 @@ a {
 }
 
 footer {
-    text-align: center;
     font-size: 90%;
+    text-align: center;
+}
+
+body .modal {
+    margin-left: -375px;
+    width: 750px;
 }

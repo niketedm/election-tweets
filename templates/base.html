@@ -49,7 +49,6 @@
                         <li><a href="/new">Agregar nuevo <i class="icon-plus-sign"></i></a></li>
                         <li><a href="/signout" data-toggle="modal">Salir <i class="icon-signout"></i></a></li>
                         {% else %}
-                        <li><a href="#how" data-toggle="modal">¿Como funciona? <i class="icon-question-sign"></i></a></li>
                         <li><a href="#about" data-toggle="modal">Acerca de <i class="icon-info-sign"></i></a></li>
                         {% endif %}
                     </ul>
@@ -70,7 +69,7 @@
         <hr>
         <footer>
             <p>&copy; 2013 <a href="https://twitter.com/tweetczm" target="_blank">@tweetczm</a></p>
-            <p>Made with <i class="icon-heart love"></i> by <a href="https://twitter.com/kelevrium" target="_blank">@kelevrium</a></p>
+            <p><small>Developed by <a href="https://twitter.com/kelevrium" target="_blank">@kelevrium</a></small></p>
             {% if user.is_authenticated == False %}
             <p><a href="/signin"><i class="icon-signin"></i></a></p>
             {% endif %}
@@ -85,46 +84,20 @@
             <h3 id="about-label"><i class="icon-info-sign"></i> Acerca de</h3>
         </div>
         <div class="modal-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>El propósito de este sitio, es de concentrar contenido relevante sobre la jornada electoral realizada en Cozumel durante el domingo 7 de julio del año 2013.</p>
+            <h4>¿Cómo funciona?</h4>
+            <p>Esta <em>web application</em> opera gracias a las APIs que twitter pone a disposición para que desarrolladores puedan hacer uso de su plataforma.</p>
+            <p>Son registrados únicamente los <em>tweets</em> que provienen de cuentas sin ninguna restricción de privacidad.</p>
+            <p>El proyecto no tiene ánimos de lucro, se elaboró con intención recreativa y educativa, por lo tanto, la información recabada en este lugar no pretende ser manipulada para otros fines.</p>
+            <h4>Deslinde de responsabilidades</h4>
+            <p>El contenido (<em>tweets</em>) mostrado en este sitio es propiedad de cada autor, el desarrollador no se hace responsable por las opiniones desplegadas y controversias que estas puedan causar.</p>
+            <p>Así mismo, este proyecto no está ligado a ningún partido político y tampoco busca dañar la imagen de algún candidato.</p>
+            <p>El usuario es libre de generar su propio criterio sobre lo que cada <em>tweet</em> expone.</p>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>
         </div>
     </div>
 
-    <div id="how" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="how-label" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="how-label"><i class="icon-question-sign"></i> ¿Cómo funciona?</h3>
-        </div>
-        <div class="modal-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-        </div>
-    </div>      
 </body>
 </html>
