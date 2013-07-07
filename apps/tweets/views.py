@@ -76,7 +76,7 @@ def get_new(request):
 
 def get_tweets(request):
     tweets = Tweet.objects.all().order_by('id').reverse()
-    paginator = Paginator(tweets, 5)
+    paginator = Paginator(tweets, 20)
     try:
         page = int(request.GET.get('page', '1'))
     except ValueError:
