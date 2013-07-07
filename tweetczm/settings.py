@@ -4,8 +4,7 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 import django
 import os
 
-DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+APPDIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -19,7 +18,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join('database', 'tweetczm.db'), # Or path to database file if using sqlite3.
+        'NAME': os.path.join(APPDIR, 'database', 'tweetczm.db'), # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -41,7 +40,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = os.path.join('media')
+MEDIA_ROOT = os.path.join(APPDIR, 'media')
 
 MEDIA_URL = '/media/'
 
@@ -50,7 +49,7 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-        os.path.join('static'),
+        os.path.join(APPDIR, 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -82,7 +81,7 @@ ROOT_URLCONF = 'tweetczm.urls'
 WSGI_APPLICATION = 'tweetczm.wsgi.application'
 
 TEMPLATE_DIRS = (
-        os.path.join('templates')
+        os.path.join(APPDIR, 'templates')
 )
 
 INSTALLED_APPS = (
