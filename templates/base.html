@@ -4,8 +4,17 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="El propósito de este sitio, es de concentrar contenido relevante sobre la jornada electoral realizada en Cozumel durante el domingo 7 de julio del año 2013.">
+    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="shortcut icon" href="{% static "assets/img/icons/favicon.png" type="image/png">
+    <meta property="og:title" content="Jornada Electoral: Cozumel 2013">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://tweetczm.com">
+    <meta property="og:site_name" content="Jornada Electoral: Cozumel 2013">
+    <meta property="og:description" content="El propósito de este sitio, es de concentrar contenido relevante sobre la jornada electoral realizada en Cozumel durante el domingo 7 de julio del año 2013.">
+    <meta property="og:image" content="http://tweetczm.com{% static "assets/img/twitter-logo.png" %}" />
+
+    <link rel="shortcut icon" href="{% static "assets/img/favicon.png" %}" type="image/png">
     <!-- CSS Files -->
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" rel="stylesheet">
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -22,10 +31,24 @@
     <script src="{% static 'assets/js/application.js' %}" type="text/javascript"></script>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+    <script type="text/javascript">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-13277186-2']);
+        _gaq.push(['_setDomainName', '.tweetczm.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+           var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+    </script>
+
+   <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
 
@@ -66,38 +89,38 @@
        {% endblock %}
 
 
-        <hr>
-        <footer>
-            <p>&copy; 2013 <a href="https://twitter.com/tweetczm" target="_blank">@tweetczm</a></p>
-            <p><small>Developed by <a href="https://twitter.com/kelevrium" target="_blank">@kelevrium</a></small></p>
-            {% if user.is_authenticated == False %}
-            <p><a href="/signin"><i class="icon-signin"></i></a></p>
-            {% endif %}
-        </footer>
+       <hr>
+       <footer>
+        <p>&copy; 2013 <a href="https://twitter.com/tweetczm" target="_blank">@tweetczm</a></p>
+        <p><small>Developed by <a href="https://twitter.com/kelevrium" target="_blank">@kelevrium</a></small></p>
+        {% if user.is_authenticated == False %}
+        <p><a href="/signin"><i class="icon-signin"></i></a></p>
+        {% endif %}
+    </footer>
 
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
-    <!-- Modals -->
-    <div id="about" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="about-label" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="about-label"><i class="icon-info-sign"></i> Acerca de</h3>
-        </div>
-        <div class="modal-body">
-            <p>El propósito de este sitio, es de concentrar contenido relevante sobre la jornada electoral realizada en Cozumel durante el domingo 7 de julio del año 2013.</p>
-            <h4>¿Cómo funciona?</h4>
-            <p>Esta <em>web application</em> opera gracias a las APIs que twitter pone a disposición para que desarrolladores puedan hacer uso de su plataforma.</p>
-            <p>Son registrados únicamente los <em>tweets</em> que provienen de cuentas sin ninguna restricción de privacidad.</p>
-            <p>El proyecto no tiene ánimos de lucro, se elaboró con intención recreativa y educativa, por lo tanto, la información recabada en este lugar no pretende ser manipulada para otros fines.</p>
-            <h4>Deslinde de responsabilidades</h4>
-            <p>El contenido (<em>tweets</em>) mostrado en este sitio es propiedad de cada autor, el desarrollador no se hace responsable por las opiniones desplegadas y controversias que estas puedan causar.</p>
-            <p>Así mismo, este proyecto no está ligado a ningún partido político y tampoco busca dañar la imagen de algún candidato.</p>
-            <p>El usuario es libre de generar su propio criterio sobre lo que cada <em>tweet</em> expone.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-        </div>
+<!-- Modals -->
+<div id="about" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="about-label" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="about-label"><i class="icon-info-sign"></i> Acerca de</h3>
     </div>
+    <div class="modal-body">
+        <p>El propósito de este sitio, es de concentrar contenido relevante sobre la jornada electoral realizada en Cozumel durante el domingo 7 de julio del año 2013.</p>
+        <h4>¿Cómo funciona?</h4>
+        <p>Esta <em>web application</em> opera gracias a las APIs que twitter pone a disposición para que desarrolladores puedan hacer uso de su plataforma.</p>
+        <p>Son registrados únicamente los <em>tweets</em> que provienen de cuentas sin ninguna restricción de privacidad.</p>
+        <p>El proyecto no tiene ánimos de lucro, se elaboró con intención recreativa y educativa, por lo tanto, la información recabada en este lugar no pretende ser manipulada para otros fines.</p>
+        <h4>Deslinde de responsabilidades</h4>
+        <p>El contenido (<em>tweets</em>) mostrado en este sitio es propiedad de cada autor, el desarrollador no se hace responsable por las opiniones desplegadas y controversias que estas puedan causar.</p>
+        <p>Así mismo, este proyecto no está ligado a ningún partido político y tampoco busca dañar la imagen de ningún candidato.</p>
+        <p>El usuario es libre de generar su propio criterio sobre lo que cada <em>tweet</em> expone.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    </div>
+</div>
 
 </body>
 </html>
