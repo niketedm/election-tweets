@@ -20,13 +20,14 @@ a {
     column-count: 2;
     column-gap: 20px;
     column-fill: inherit;
-    width: 1000px;
+    width: 1040px;
     margin: 0 auto;
 }
 
 #embeded-tweets li {
     display: inline-block;
     width: 500px;
+    opacity: 0;
 }
 
 .love {

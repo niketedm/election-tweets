@@ -9,20 +9,20 @@ Agregar nuevo tweet | Jornada Electoral: Cozumel 2013
 <div class="container">
 
     {% if success %}
-    <div class="alert alert-success">
+    <div class="alert alert-{{alert}}">
         <a class="close" data-dismiss="alert">&times;</a>
-        <strong>Success!</strong> You successfully read this important alert message.
+        <strong><i class="icon-info-sign"></i> {{ success }}</strong>
     </div>
     {% endif %}
 
     <form action="/new" method="POST">
         {% csrf_token %}
         <fieldset>
-            <legend>Agregar nuevo tweet</legend>
+            <legend>Agregar tweet</legend>
 
             <div class="input-append new-tweet">
-                <input class="input-block-level" type="text" name="url" id="url" placeholder="URL">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <input class="input-block-level" type="text" name="url" id="url" placeholder="URL" required>
+                <button type="submit" class="btn btn-primary"><strong>Guardar <i class="icon-edit"></i></strong></button>
             </div>
 
         </fieldset>

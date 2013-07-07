@@ -46,11 +46,11 @@
                 <div class="nav-collapse pull-right">
                     <ul class="nav">
                         {% if user.is_authenticated %}
-                        <li><a href="/new">Agregar nuevo</a></li>
+                        <li><a href="/new">Agregar nuevo <i class="icon-plus-sign"></i></a></li>
                         <li><a href="/signout" data-toggle="modal">Salir <i class="icon-signout"></i></a></li>
                         {% else %}
-                        <li><a href="#how" data-toggle="modal">¿Como funciona?</a></li>
-                        <li><a href="#about" data-toggle="modal">Acerca de</a></li>
+                        <li><a href="#how" data-toggle="modal">¿Como funciona? <i class="icon-question-sign"></i></a></li>
+                        <li><a href="#about" data-toggle="modal">Acerca de <i class="icon-info-sign"></i></a></li>
                         {% endif %}
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -69,8 +69,11 @@
 
         <hr>
         <footer>
-            <p>&copy;2013 <a href="https://twitter.com/tweetczm" target="_blank">@tweetczm</a></p>
+            <p>&copy; 2013 <a href="https://twitter.com/tweetczm" target="_blank">@tweetczm</a></p>
             <p>Made with <i class="icon-heart love"></i> by <a href="https://twitter.com/kelevrium" target="_blank">@kelevrium</a></p>
+            {% if user.is_authenticated == False %}
+            <p><a href="/signin"><i class="icon-signin"></i></a></p>
+            {% endif %}
         </footer>
 
     </div> <!-- /container -->
@@ -79,7 +82,7 @@
     <div id="about" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="about-label" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="about-label">Acerca de</h3>
+            <h3 id="about-label"><i class="icon-info-sign"></i> Acerca de</h3>
         </div>
         <div class="modal-body">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -103,7 +106,7 @@
     <div id="how" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="how-label" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="how-label">¿Cómo funciona?</h3>
+            <h3 id="how-label"><i class="icon-question-sign"></i> ¿Cómo funciona?</h3>
         </div>
         <div class="modal-body">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

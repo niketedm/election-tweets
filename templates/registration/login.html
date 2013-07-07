@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Ingresar | Jornada Electoral: Cozumel 2013
+Iniciar sesión | Jornada Electoral: Cozumel 2013
 {% endblock %}
 
 
@@ -17,33 +17,31 @@ Ingresar | Jornada Electoral: Cozumel 2013
     <div class="box">
         <!-- Box Head -->
         <div class="box-head">
-            <h2>Ingresar</h2>
+            <h2>Iniciar sesión</h2>
         </div>
 
         {% if user.is_authenticated %}
         <div class="alert alert-info">
-            <p><strong> Lo Sentimos </strong> Estas viendo este mensaje debido a que  no se te han
-                asignado los permisos para realizar la acción que deseas favor de comunicarte con el
-                administrador del sistema o el encargado de tu departamento de computo.</p>
-            </div>
-
-            {% else %}
-            <form action="." method="POST"> {% csrf_token %}
-                <div class="form">
-                    <div class="input-prepend">
-                        <span class="add-on"><i class="icon-user"></i></span>
-                        <input class="input-xlarge" type="text" name="username" id="username" placeholder="Usuario" required>
-                    </div>
-                    <div class="input-prepend input-append">
-                        <span class="add-on"><i class="icon-lock"></i></span>
-                        <input class="input-xlarge" type="password" name="password" id="password" placeholder="Contraseña" required>
-                        <button class="btn btn-primary" type="submit">Ingresar <i class="icon-signin"></i></button>
-                    </div>
-                </div>
-                <input type="hidden" name="next" value="{{ next|escape }}"/>
-            </form>
-            {% endif %}
+            <i class="icon-info-sign"> Usuario ya autentificado.</i>
         </div>
 
+        {% else %}
+        <form action="." method="POST"> {% csrf_token %}
+            <div class="form">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                    <input class="input-xlarge" type="text" name="username" id="username" placeholder="Usuario" required>
+                </div>
+                <div class="input-prepend input-append">
+                    <span class="add-on"><i class="icon-lock"></i></span>
+                    <input class="input-xlarge" type="password" name="password" id="password" placeholder="Contraseña" required>
+                    <button class="btn btn-success" type="submit">Entrar <i class="icon-signin"></i></button>
+                </div>
+            </div>
+            <input type="hidden" name="next" value="{{ next|escape }}"/>
+        </form>
+        {% endif %}
     </div>
-    {% endblock %}
+
+</div>
+{% endblock %}

@@ -1,17 +1,19 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.context_processors import csrf
 from django.core.paginator import Paginator
+from django.db import IntegrityError
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-
+from django.http import HttpResponse
 
 
 import requests
 from requests_oauthlib import OAuth1
-from urlparse import parse_qs
+from urlparse import urlparse, parse_qs
 import json
 
 from apps.tweets.models import Tweet
@@ -28,30 +30,48 @@ def get_oauth():
 @login_required
 def get_new(request):
 
-    c = {}
-    c.update(csrf(request))
+    alert = False
+    success = {}
 
     if request.method == 'POST':
-        tweet = request.POST['url']
-        tweet = tweet.split('/')[-1:]
 
-        oauth = get_oauth()
+        validate = urlparse(request.POST['url'])
 
-        r = requests.get(url=settings.APIURL + tweet[0] + settings.PARAMS,
-                         auth=oauth).content
+        if validate.netloc == 'twitter.com':
+            tweet = request.POST['url']
+            tweet = tweet.split('/')[-1:]
 
-        r = json.loads(r)
+            oauth = get_oauth()
 
-        tweet = Tweet(
-            tid=tweet[0],
-            html=r['html'],
-            url=r['url'],
-            author=r['author_name']
-        )
+            r = requests.get(url=settings.APIURL + tweet[0] + settings.PARAMS,
+                             auth=oauth).content
 
-        tweet.save()
+            r = json.loads(r)
 
-    return render_to_response('new.html', c, RequestContext(request))
+            try:
+
+                tweet = Tweet(
+                    tid=tweet[0],
+                    html=r['html'],
+                    url=r['url'],
+                    author=r['author_name']
+                )
+
+                tweet.save()
+                alert = u'success'
+                success = u'Se ha agregado el tweet con éxito.'
+            except IntegrityError:
+                alert = u'warning'
+                success = u'El tweet ingresado ya existe en la base de datos.'
+                pass
+
+        else:
+            alert = 'error'
+            success = u'La url ingresada no es válida.'
+
+    return render_to_response('new.html',
+        {'alert': alert ,'success':success}, \
+        RequestContext(request))
 
 
 def get_tweets(request):

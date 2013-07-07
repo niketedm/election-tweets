@@ -6,6 +6,7 @@
 {% if has_next %}
     $('input#page').val('{{ next }}')
 {% else %}
-    $('#more-tweets').hide()
+    $('#more-tweets').fadeOut()
+    $('#back-top').fadeIn()
 {% endif %}
 </script>

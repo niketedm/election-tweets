@@ -4,14 +4,20 @@
 Jornada Electoral: Cozumel 2013
 {% endblock %}
 
-{% block content %}        
+{% block content %}
+
 <div class="row-fluid">
     <ul id="embeded-tweets">
 
     </ul>
 </div>
-<div class="row-fluid">
-    <input type="hidden" name="page" id="page" value="">
-    <button class="btn btn-block btn-large btn-inverse" id="more-tweets">Cargar más tweets</button>
+
+<div class="container">
+    <div class="row-fluid">
+        <input type="hidden" name="page" id="page" value="">
+        <button class="btn btn-block btn-large btn-primary" id="more-tweets">Ver más <i class="icon-refresh"></i> </button>
+        <button class="btn btn-block btn-large btn-success hide" id="back-top"><i class="icon-arrow-up"></i> </button>
+    </div>
 </div>
+
 {% endblock %}
