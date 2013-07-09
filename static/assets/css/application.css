@@ -9,35 +9,6 @@ a {
     text-decoration: none!important;
 }
 
-ul, li {
-    margin: 0;
-    padding: 0;
-}
-
-.main {
-    margin-top: 60px;
-}
-
-#embeded-tweets {
-    -webkit-column-count: 2;
-    -webkit-column-gap: 10px;
-    -webkit-column-fill: inherit;
-    -moz-column-count: 2;
-    -moz-column-gap: 10px;
-    -moz-column-fill: inherit;
-    column-count: 2;
-    column-gap: 10px;
-    column-fill: inherit;
-    margin: 0 auto;
-    width: 1020px;
-}
-
-#embeded-tweets li {
-    display: inline-block;
-    opacity: 0;
-    width: 500px;
-}
-
 .disclaimer {
     color: #f00;
     font-weight: bold;
@@ -50,6 +21,39 @@ ul, li {
 footer {
     font-size: 90%;
     text-align: center;
+}
+
+@media all and (min-width: 1024px) {
+
+    .main {
+        margin-top: 60px;
+    }
+
+    #embeded-tweets {
+        -webkit-column-count: 2;
+        -webkit-column-gap: 10px;
+        -webkit-column-fill: inherit;
+        -moz-column-count: 2;
+        -moz-column-gap: 10px;
+        -moz-column-fill: inherit;
+        column-count: 2;
+        column-gap: 10px;
+        column-fill: inherit;
+        margin: 0 auto;
+        width: 1020px;
+    }
+
+    #embeded-tweets li {
+        display: inline-block;
+        opacity: 0;
+        width: 500px;
+    }
+
+    .modal {
+        margin-left: -375px;
+        width: 750px
+    }
+    
 }
 
 @media all and (min-width: 800px) and (max-width: 1024px) {
@@ -76,6 +80,11 @@ footer {
 
     #embeded-tweets li iframe {
         width: 100%;
+    }
+
+    .modal {
+        margin-left: -375px;
+        width: 750px
     }
 
 }
