@@ -1,5 +1,4 @@
-Django
-django-suit
-MySQL-python
-requests
-requests-oauthlib
+Django==1.5.1
+django-suit==0.2.2
+requests==1.2.3
+requests-oauthlib==0.3.2

@@ -1,4 +1,4 @@
-# Django settings for tweetczm project.
+# Django settings for elections project.
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 import django
@@ -18,7 +18,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(APPDIR, 'database', 'tweetczm.db'), # Or path to database file if using sqlite3.
+        'NAME': os.path.join(APPDIR, 'database', 'elections.db'), # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -58,7 +58,7 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-SECRET_KEY = 'mono-tweetczm-tu-banana'
+SECRET_KEY = 'mono-chango-tu-banana'
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -76,9 +76,9 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'tweetczm.urls'
+ROOT_URLCONF = 'elections.urls'
 
-WSGI_APPLICATION = 'tweetczm.wsgi.application'
+WSGI_APPLICATION = 'elections.wsgi.application'
 
 TEMPLATE_DIRS = (
         os.path.join(APPDIR, 'templates')
@@ -159,6 +159,24 @@ SUIT_CONFIG = {
 LOGIN_URL = '/signin'
 LOGOUT_URL = '/signout'
 LOGIN_REDIRECT_URL = '/new'
+
+# Twitter
+
+REQUEST_TOKEN_URL = 'https://api.twitter.com/oauth/request_token'
+AUTHORIZE_URL = 'https://api.twitter.com/oauth/authorize?oauth_token='
+ACCESS_TOKEN_URL = 'https://api.twitter.com/oauth/access_token'
+
+APIURL = 'https://api.twitter.com/1.1/statuses/oembed.json?id='
+
+PARAMS = '&omit_script=true'
+
+# Get your keys at: https://dev.twitter.com/apps
+
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
+
+OAUTH_TOKEN = ''
+OAUTH_TOKEN_SECRET = ''
 
 try:
     from local_settings import *
