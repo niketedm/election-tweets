@@ -94,4 +94,5 @@ def get_tweets(request):
 
 
 def get_template(request):
-    return render_to_response('hello.html', RequestContext(request))
+    GA = { 'DOMAIN': settings.DOMAIN, 'UACODE': settings.UACODE}
+    return render_to_response('hello.html', GA, RequestContext(request))
